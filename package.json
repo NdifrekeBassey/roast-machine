@@ -1,0 +1,23 @@
+{
+  "name": "roast-website",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/YourUsername/your-repo.gi.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/YourUsername/your-repo.gi/issues"
+  },
+  "homepage": "https://github.com/YourUsername/your-repo.gi#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}
