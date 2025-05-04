@@ -1,25 +1,22 @@
+
 const express = require('express');
+const path = require('path');
 const app = express();
 
-const roastLines = [
-    "{name}? Sounds like a bug in the system.",
-    "When {name} enters the room, even Wi-Fi disconnects.",
-    "{name}, you're the reason semicolons exist!",
-    "{name}? You debug with Google Translate, don’t you?",
-    "{name}, your code runs on vibes and errors."
-];
-
-app.get('/', (req, res) => {
-    res.send('Welcome to Roast Machine! Try /roast?name=yourname');
-});
+app.use(express.static(path.join(__dirname, 'public')));
 
 app.get('/roast', (req, res) => {
-    const name = req.query.name || "Someone";
-    const random = Math.floor(Math.random() * roastLines.length);
-    const roast = roastLines[random].replace('{name}', name);
-    res.send(roast);
+  const username = req.query.username;
+  const roasts = [
+    `@${username}? More like @whyAreYouOnline.`,
+    `@${username} is living proof autocorrect can't fix everything.`,
+    `@${username}'s tweets are sponsored by bad decisions.`
+  ];
+
+  const roast = roasts[Math.floor(Math.random() * roasts.length)];
+  res.send(`<h1>${roast}</h1><a href="/">Roast another</a>`);
 });
 
 app.listen(3000, () => {
-    console.log('Server is running on http://localhost:3000');
+  console.log('Server running on http://localhost:3000');
 });
